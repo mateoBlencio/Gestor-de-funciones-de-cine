@@ -1,0 +1,5 @@
+.idea
+.gitignore
+funciones-service/src/main/resources/application.properties
+/funciones-service/src/main/resources/application.properties
+./funciones-service/src/main/resources/application.properties
