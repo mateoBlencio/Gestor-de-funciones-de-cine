@@ -37,20 +37,20 @@ public class EstadoSalaController {
         }
     }
 
-    @DeleteMapping("/{estadoId}")
-    public ResponseEntity<Object> delete(@PathVariable Integer estadoId){
+    @PutMapping("/{estadoId}")
+    public ResponseEntity<Object> update(@PathVariable Integer estadoId,@RequestBody UpdateEstadoSalaRequest dto){
         try{
-            estadoSalaService.deleteOne(estadoId);
+            estadoSalaService.update(estadoId, dto.getNombre(), dto.getDescripcion());
             return ResponseEntity.noContent().build();
         } catch (Exception e){
             return ResponseEntity.notFound().build();
         }
     }
 
-    @PutMapping("/{estadoId}")
-    public ResponseEntity<Object> update(@PathVariable Integer estadoId,@RequestBody UpdateEstadoSalaRequest dto){
+    @DeleteMapping("/{estadoId}")
+    public ResponseEntity<Object> delete(@PathVariable Integer estadoId){
         try{
-            estadoSalaService.update(estadoId, dto.getNombre(), dto.getDescripcion());
+            estadoSalaService.deleteOne(estadoId);
             return ResponseEntity.noContent().build();
         } catch (Exception e){
             return ResponseEntity.notFound().build();
